@@ -7,6 +7,9 @@ const double _smallSize = 10.0;
 const double _mediumSize = 25.0;
 const double _largeSize = 50.0;
 const double _massiveSize = 120.0;
+//fonts
+const double optionsTextFontSize = 25;
+const String fontFamilyOswald = 'Oswald';
 
 const Widget horizontalSpaceTiny = SizedBox(width: _tinySize);
 const Widget horizontalSpaceSmall = SizedBox(width: _smallSize);
@@ -18,6 +21,7 @@ const Widget verticalSpaceSmall = SizedBox(height: _smallSize);
 const Widget verticalSpaceMedium = SizedBox(height: _mediumSize);
 const Widget verticalSpaceLarge = SizedBox(height: _largeSize);
 const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
+
 
 Widget spacedDivider = const Column(
   children: <Widget>[

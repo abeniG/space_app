@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/ui/views/home/component/options_container.dart';
 import 'package:stacked/stacked.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
-
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -98,86 +98,34 @@ class HomeView extends StackedView<HomeViewModel> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Column(
                         children: [
+                          //solar system
                           GestureDetector(
                             onTap: () {
                               viewModel.navigateToSollarSystem();
                             },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height / 2.8,
-                              width: MediaQuery.of(context).size.width / 2.2,
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: MediaQuery.of(context).size.height /
-                                        2.8,
-                                    width:
-                                        MediaQuery.of(context).size.width / 2.2,
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                          'assets/home/solarSystemOption.jpeg',
-                                          fit: BoxFit.cover,
-                                        )),
-                                  ),
-                                  Positioned(
-                                    top:
-                                        MediaQuery.of(context).size.width / 1.6,
-                                    left:
-                                        MediaQuery.of(context).size.width / 40,
-                                    child: Text(
-                                      'Solar System',
-                                      style: TextStyle(
-                                          fontFamily: 'Oswald',
-                                          color: Colors.white,
-                                          fontSize: 25),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            child: OptionsContainer(
+                                coverImage: 'assets/home/solarSystemOption.jpeg',
+                                firstContainerHeight: screenHeight(context)/2.8,
+                                firstContainerWidth: screenWidth(context)/2.2,
+                                positionFromLeft: screenWidth(context) / 40,
+                                positionFromTop: screenWidth(context) / 1.6,
+                                title: 'Solar System'),
                           ),
+                          //quizes
                           GestureDetector(
                             onTap: () {
                               viewModel.showDialog();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height / 4.3,
-                                width: MediaQuery.of(context).size.width / 2.2,
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              4.3,
-                                      width: MediaQuery.of(context).size.width /
-                                          2.2,
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            'assets/home/quizes.jpeg',
-                                            fit: BoxFit.cover,
-                                          )),
-                                    ),
-                                    Positioned(
-                                      top: MediaQuery.of(context).size.width /
-                                          2.7,
-                                      left: MediaQuery.of(context).size.width /
-                                          40,
-                                      child: Text(
-                                        'Quizes',
-                                        style: TextStyle(
-                                            fontFamily: 'Oswald',
-                                            color: Colors.white,
-                                            fontSize: 25),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              child: OptionsContainer(
+                                  coverImage: 'assets/home/quizes.jpeg',
+                                  firstContainerHeight: screenHeight(context)/4.3,
+                                  firstContainerWidth: screenWidth(context)/2.2,
+                                  positionFromLeft: screenWidth(context)/40,
+                                  positionFromTop: screenWidth(context)/2.7,
+                                  title: 'Quizes'),
+
                             ),
                           )
                         ],
@@ -187,87 +135,36 @@ class HomeView extends StackedView<HomeViewModel> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Column(
                         children: [
+                          //gallery
                           GestureDetector(
                             onTap: () {
                               viewModel.navigateToGallery();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height / 4.3,
-                                width: MediaQuery.of(context).size.width / 2.2,
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              4.3,
-                                      width: MediaQuery.of(context).size.width /
-                                          2.2,
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            'assets/home/galleryOption.jpg',
-                                            fit: BoxFit.cover,
-                                          )),
-                                    ),
-                                    Positioned(
-                                      top: MediaQuery.of(context).size.width /
-                                          2.7,
-                                      left: MediaQuery.of(context).size.width /
-                                          40,
-                                      child: Text(
-                                        'Gallery',
-                                        style: TextStyle(
-                                            fontFamily: 'Oswald',
-                                            color: Colors.white,
-                                            fontSize: 25),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              child: OptionsContainer(
+                                  coverImage: 'assets/home/galleryOption.jpg',
+                                  firstContainerHeight: screenHeight(context)/4.3,
+                                  firstContainerWidth: screenWidth(context)/2.2,
+                                  positionFromLeft: screenWidth(context)/40,
+                                  positionFromTop: screenWidth(context)/2.7,
+                                  title: 'Gallery'
                               ),
+
                             ),
                           ),
+                          //event
                           GestureDetector(
                             onTap: () {
                               viewModel.navigateToEvents();
                             },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height / 2.8,
-                              width: MediaQuery.of(context).size.width / 2.2,
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: MediaQuery.of(context).size.height /
-                                        2.8,
-                                    width:
-                                        MediaQuery.of(context).size.width / 2.2,
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                          'assets/home/events.jpg',
-                                          fit: BoxFit.cover,
-                                        )),
-                                  ),
-                                  Positioned(
-                                    top:
-                                        MediaQuery.of(context).size.width / 1.6,
-                                    left:
-                                        MediaQuery.of(context).size.width / 40,
-                                    child: Text(
-                                      'Events',
-                                      style: TextStyle(
-                                          fontFamily: 'Oswald',
-                                          color: Colors.white,
-                                          fontSize: 25),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            child: OptionsContainer(
+                                coverImage: 'assets/home/events.jpg',
+                                firstContainerHeight: screenHeight(context)/2.8,
+                                firstContainerWidth: screenWidth(context)/2.2,
+                                positionFromLeft: screenWidth(context) / 40,
+                                positionFromTop: screenWidth(context) / 1.6,
+                                title: 'Events'),
                           ),
                         ],
                       ),
