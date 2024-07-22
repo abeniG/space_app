@@ -37,5 +37,4 @@ class HomeViewModel extends BaseViewModel {
       description: ksDialogDescription,
     );
   }
-
 }

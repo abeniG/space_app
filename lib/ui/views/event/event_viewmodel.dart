@@ -1,9 +1,8 @@
 import 'package:stacked/stacked.dart';
-import '../../../models/eventModel.dart';
+import '../../../models/event_model.dart';
 import '../../../services/nasa_events_api_service.dart';
 
-
-class EventPageViewModel extends BaseViewModel{
+class EventPageViewModel extends BaseViewModel {
   final NasaEventsApiService _eventService = NasaEventsApiService();
   List<Event> _events = [];
 

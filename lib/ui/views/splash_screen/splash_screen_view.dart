@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_icons.dart';
+import 'package:space_app/ui/common/app_strings.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'splash_screen_viewmodel.dart';
@@ -53,7 +55,7 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
               top: screenWidthFraction(context, dividedBy: 2),
               right: screenWidthFraction(context, dividedBy: 9),
               child: Text(
-                'Explore Space,\nInspire Generations.',
+                ksMoto,
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: screenWidthFraction(context, dividedBy: 10),
@@ -68,14 +70,10 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
                 children: [
                   IconButton(
                       onPressed: () => viewModel.navigateToHome(),
-                      icon: Icon(
-                        size: 40,
-                        Icons.arrow_circle_right_outlined,
-                        color: kcWhite.withOpacity(0.9),
-                      )),
+                      icon: kiLetsGo),
                   AnimatedTextKit(animatedTexts: [
                     TypewriterAnimatedText("LET'S GO!",
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             color: kcWhite60,
                             fontFamily: fontFamilyOswald,
                             fontSize: 20),

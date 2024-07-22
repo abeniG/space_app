@@ -7,11 +7,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i9;
 import 'package:flutter/material.dart';
-import 'package:space_app/ui/views/event_page/event_page_view.dart' as _i5;
-import 'package:space_app/ui/views/gallery_page/gallery_page_view.dart' as _i7;
+import 'package:space_app/ui/views/event/event_view.dart' as _i5;
+import 'package:space_app/ui/views/gallery/gallery_view.dart' as _i7;
 import 'package:space_app/ui/views/home/home_view.dart' as _i2;
-import 'package:space_app/ui/views/quizes_page/quizes_page_view.dart' as _i6;
-import 'package:space_app/ui/views/sollar_system_page/sollar_system_page_view.dart'
+import 'package:space_app/ui/views/quizes/quizes_view.dart' as _i6;
+import 'package:space_app/ui/views/sollar_system/sollar_system_view.dart'
     as _i8;
 import 'package:space_app/ui/views/splash_screen/splash_screen_view.dart'
     as _i4;
@@ -98,7 +98,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i5.EventPageView: (data) {
       return _i9.MaterialPageRoute<dynamic>(
-        builder: (context) => _i5.EventPageView(),
+        builder: (context) => const _i5.EventPageView(),
         settings: data,
       );
     },

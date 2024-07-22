@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 
-import 'quizes_page_viewmodel.dart';
+import 'quizes_viewmodel.dart';
 
 class QuizesPageView extends StackedView<QuizesPageViewModel> {
   const QuizesPageView({Key? key}) : super(key: key);

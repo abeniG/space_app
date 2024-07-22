@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:space_app/models/eventModel.dart';
+import 'package:space_app/models/event_model.dart';
 
 class NasaEventsApiService {
   Future<List<Event>> fetchEvents() async {
-    final response = await http.get(Uri.parse('https://eonet.gsfc.nasa.gov/api/v2.1/events?limit=20'));
+    final response = await http
+        .get(Uri.parse('https://eonet.gsfc.nasa.gov/api/v2.1/events?limit=20'));
 
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);

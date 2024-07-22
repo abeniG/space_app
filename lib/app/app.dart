@@ -5,10 +5,10 @@ import 'package:space_app/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:space_app/ui/views/splash_screen/splash_screen_view.dart';
-import 'package:space_app/ui/views/event_page/event_page_view.dart';
-import 'package:space_app/ui/views/quizes_page/quizes_page_view.dart';
-import 'package:space_app/ui/views/gallery_page/gallery_page_view.dart';
-import 'package:space_app/ui/views/sollar_system_page/sollar_system_page_view.dart';
+import 'package:space_app/ui/views/event/event_view.dart';
+import 'package:space_app/ui/views/quizes/quizes_view.dart';
+import 'package:space_app/ui/views/gallery/gallery_view.dart';
+import 'package:space_app/ui/views/sollar_system/sollar_system_view.dart';
 import 'package:space_app/services/nasa_gallery_api_service.dart';
 import 'package:space_app/services/nasa_events_api_service.dart';
 // @stacked-import

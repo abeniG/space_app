@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/ui/common/app_strings.dart';
 import 'package:space_app/ui/views/home/component/options_container.dart';
 import 'package:stacked/stacked.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
 import 'package:space_app/ui/common/app_colors.dart';
-
 
 class HomeView extends StackedView<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
@@ -25,14 +25,14 @@ class HomeView extends StackedView<HomeViewModel> {
           children: [
             horizontalSpaceMedium,
             Text(
-              'ESSS',
+              ksEsss,
               style: TextStyle(
                   color: kcRed.withOpacity(0.8),
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
-                  fontFamily: 'BodoniModaSC'),
+                  fontFamily: fontFamilyOswald),
             ),
-            Container(
+            SizedBox(
                 height: screenHeightFraction(context, dividedBy: 9),
                 width: screenWidthFraction(context, dividedBy: 9),
                 child: Image.asset('assets/logo.png')),
@@ -40,7 +40,7 @@ class HomeView extends StackedView<HomeViewModel> {
         ),
         centerTitle: true,
       ),
-      body: Container(
+      body: SizedBox(
         height: screenHeight(context),
         width: screenWidth(context),
         child: SingleChildScrollView(
@@ -49,12 +49,12 @@ class HomeView extends StackedView<HomeViewModel> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
+                child: SizedBox(
                   height: screenWidthFraction(context, dividedBy: 3),
                   width: screenWidth(context),
                   child: Stack(
                     children: [
-                      Container(
+                      SizedBox(
                         height: screenWidthFraction(context, dividedBy: 3),
                         width: screenWidth(context),
                         child: ClipRRect(
@@ -68,10 +68,10 @@ class HomeView extends StackedView<HomeViewModel> {
                       Positioned(
                           top: screenWidthFraction(context, dividedBy: 4.2),
                           child: const Text(
-                            ' Several New Things will happen in space',
+                            ksHomePlaceholder,
                             style: TextStyle(
                                 color: kcWhite,
-                                fontFamily: 'Oswald',
+                                fontFamily: fontFamilyOswald,
                                 fontSize: 20),
                           ))
                     ],
@@ -106,11 +106,18 @@ class HomeView extends StackedView<HomeViewModel> {
                               viewModel.navigateToSollarSystem();
                             },
                             child: OptionsContainer(
-                                coverImage: 'assets/home/solarSystemOption.jpeg',
-                                firstContainerHeight: screenHeightFraction(context, dividedBy: 2.8),
-                                firstContainerWidth: screenWidthFraction(context, dividedBy: 2.2),
-                                positionFromLeft: screenWidthFraction(context, dividedBy: 40),
-                                positionFromTop: screenWidthFraction(context, dividedBy: 1.6),
+                                coverImage:
+                                    'assets/home/solarSystemOption.jpeg',
+                                firstContainerHeight: screenHeightFraction(
+                                    context,
+                                    dividedBy: 2.8),
+                                firstContainerWidth: screenWidthFraction(
+                                    context,
+                                    dividedBy: 2.2),
+                                positionFromLeft:
+                                    screenWidthFraction(context, dividedBy: 40),
+                                positionFromTop: screenWidthFraction(context,
+                                    dividedBy: 1.6),
                                 title: 'Solar System'),
                           ),
                           //quizes
@@ -122,12 +129,17 @@ class HomeView extends StackedView<HomeViewModel> {
                               padding: const EdgeInsets.all(8.0),
                               child: OptionsContainer(
                                   coverImage: 'assets/home/quizes.jpeg',
-                                  firstContainerHeight: screenHeightFraction(context, dividedBy: 4.3),
-                                  firstContainerWidth: screenWidthFraction(context, dividedBy: 2.2),
-                                  positionFromLeft: screenWidthFraction(context, dividedBy: 40),
-                                  positionFromTop: screenWidthFraction(context, dividedBy: 2.7),
+                                  firstContainerHeight: screenHeightFraction(
+                                      context,
+                                      dividedBy: 4.3),
+                                  firstContainerWidth: screenWidthFraction(
+                                      context,
+                                      dividedBy: 2.2),
+                                  positionFromLeft: screenWidthFraction(context,
+                                      dividedBy: 40),
+                                  positionFromTop: screenWidthFraction(context,
+                                      dividedBy: 2.7),
                                   title: 'Quizes'),
-
                             ),
                           )
                         ],
@@ -146,13 +158,17 @@ class HomeView extends StackedView<HomeViewModel> {
                               padding: const EdgeInsets.all(8.0),
                               child: OptionsContainer(
                                   coverImage: 'assets/home/galleryOption.jpg',
-                                  firstContainerHeight: screenHeightFraction(context, dividedBy: 4.3),
-                                  firstContainerWidth: screenWidthFraction(context, dividedBy: 2.2),
-                                  positionFromLeft: screenWidthFraction(context, dividedBy: 40),
-                                  positionFromTop: screenWidthFraction(context, dividedBy: 2.7),
-                                  title: 'Gallery'
-                              ),
-
+                                  firstContainerHeight: screenHeightFraction(
+                                      context,
+                                      dividedBy: 4.3),
+                                  firstContainerWidth: screenWidthFraction(
+                                      context,
+                                      dividedBy: 2.2),
+                                  positionFromLeft: screenWidthFraction(context,
+                                      dividedBy: 40),
+                                  positionFromTop: screenWidthFraction(context,
+                                      dividedBy: 2.7),
+                                  title: 'Gallery'),
                             ),
                           ),
                           //event
@@ -162,10 +178,16 @@ class HomeView extends StackedView<HomeViewModel> {
                             },
                             child: OptionsContainer(
                                 coverImage: 'assets/home/events.jpg',
-                                firstContainerHeight: screenHeightFraction(context, dividedBy: 2.8),
-                                firstContainerWidth: screenWidthFraction(context, dividedBy: 2.2),
-                                positionFromLeft: screenWidthFraction(context,dividedBy: 40),
-                                positionFromTop: screenWidthFraction(context, dividedBy: 1.6),
+                                firstContainerHeight: screenHeightFraction(
+                                    context,
+                                    dividedBy: 2.8),
+                                firstContainerWidth: screenWidthFraction(
+                                    context,
+                                    dividedBy: 2.2),
+                                positionFromLeft:
+                                    screenWidthFraction(context, dividedBy: 40),
+                                positionFromTop: screenWidthFraction(context,
+                                    dividedBy: 1.6),
                                 title: 'Events'),
                           ),
                         ],

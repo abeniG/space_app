@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 
+// ignore: must_be_immutable
 class OptionsContainer extends StatelessWidget {
   String coverImage;
   String title;
@@ -10,15 +11,14 @@ class OptionsContainer extends StatelessWidget {
   double positionFromTop;
   double positionFromLeft;
 
-
-  OptionsContainer({super.key,
-    required this.coverImage,
-    required this.firstContainerHeight,
-    required this.firstContainerWidth,
-    required this.positionFromLeft,
-    required this.positionFromTop,
-    required this.title
-  });
+  OptionsContainer(
+      {super.key,
+      required this.coverImage,
+      required this.firstContainerHeight,
+      required this.firstContainerWidth,
+      required this.positionFromLeft,
+      required this.positionFromTop,
+      required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class OptionsContainer extends StatelessWidget {
             left: positionFromLeft,
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: fontFamilyOswald,
                   color: kcWhite,
                   fontSize: optionsTextFontSize),
