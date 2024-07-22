@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/views/event_page/event_page_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
@@ -13,17 +14,17 @@ class EventPageView extends StatelessWidget {
       viewModelBuilder: () => EventPageViewModel(),
       onModelReady: (model) => model.fetchEvents(),
       builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: kcBlack,
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.black,
+          backgroundColor: kcBlack,
           title: Text('NASA Events',
           style: TextStyle(
-            color: Colors.white
+            color: kcWhite
           ),
           ),
           iconTheme: IconThemeData(
-            color: Colors.white
+            color: kcWhite
           ),
           elevation: 0,
         ),
@@ -37,12 +38,12 @@ class EventPageView extends StatelessWidget {
               leading: Text('⭐️'),
               title: Text(event.title,
               style: TextStyle(
-                color: Colors.white
+                color: kcWhite
               ),
               ),
               subtitle: Text(event.description,
                 style: TextStyle(
-                    color: Colors.white54
+                    color: kcWhite54
                 ),
               ),
             );

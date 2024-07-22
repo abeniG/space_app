@@ -22,38 +22,33 @@ class OptionsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-
-      },
-      child: Container(
-        height: firstContainerHeight,
-        width: firstContainerWidth,
-        child: Stack(
-          children: [
-            Container(
-              height: firstContainerHeight,
-              width: firstContainerWidth,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    coverImage,
-                    fit: BoxFit.cover,
-                  )),
+    return Container(
+      height: firstContainerHeight,
+      width: firstContainerWidth,
+      child: Stack(
+        children: [
+          Container(
+            height: firstContainerHeight,
+            width: firstContainerWidth,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  coverImage,
+                  fit: BoxFit.cover,
+                )),
+          ),
+          Positioned(
+            top: positionFromTop,
+            left: positionFromLeft,
+            child: Text(
+              title,
+              style: TextStyle(
+                  fontFamily: fontFamilyOswald,
+                  color: kcWhite,
+                  fontSize: optionsTextFontSize),
             ),
-            Positioned(
-              top: positionFromTop,
-              left: positionFromLeft,
-              child: Text(
-                title,
-                style: TextStyle(
-                    fontFamily: fontFamilyOswald,
-                    color: kcWhite,
-                    fontSize: optionsTextFontSize),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

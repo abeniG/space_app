@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_strings.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../common/ui_helpers.dart';
@@ -16,32 +19,32 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: kcWhite),
         title: Text(
-          'Solar System',
-          style: TextStyle(color: Colors.white),
+          ksSolarSysem,
+          style: TextStyle(color: kcWhite),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: kcBlack,
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: kcBlack,
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: screenWidth(context),
+        height: screenHeight(context),
         child: Stack(
           children: [
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 1.25,
+              width: screenWidth(context),
+              height: screenHeightFraction(context, dividedBy: 1.25),
               child: Stack(
                 children: [Image.asset('assets/sollarSystem/sollarSystem.gif')],
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.width / 1.5,
+              top: screenWidthFraction(context, dividedBy: 1.5),
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 1.8,
-                color: Colors.transparent,
+                width: screenWidth(context),
+                height: screenHeightFraction(context, dividedBy: 1.8),
+                color: kcTransparent,
                 child: Stack(
                   children: [
                     Column(
@@ -51,10 +54,10 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: MediaQuery.of(context).size.width / 1.1,
-                              height: MediaQuery.of(context).size.height / 2.5,
+                              width: screenWidthFraction(context, dividedBy: 1.1),
+                              height: screenHeightFraction(context, dividedBy: 2.5),
                               decoration: BoxDecoration(
-                                color: Color(0XFF2c2d30),
+                                color: kcCustomContainerColor,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(50),
                                   topRight: Radius.circular(50),
@@ -79,7 +82,7 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                             ['name'],
                                         style: TextStyle(
                                             color:
-                                                Colors.white.withOpacity(0.9),
+                                                kcWhite.withOpacity(0.9),
                                             fontFamily: 'Oswald',
                                             fontSize: 30),
                                       ),
@@ -98,8 +101,8 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                       viewModel.Planets[viewModel.currentIndex]
                                           ['discription'],
                                       style: TextStyle(
-                                          color: Colors.white60,
-                                          fontFamily: 'Oswald',
+                                          color: kcWhite60,
+                                          fontFamily: fontFamilyOswald,
                                           fontSize: 12),
                                     ),
                                   ),
@@ -110,7 +113,7 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                         top: 10,
                                         bottom: 10),
                                     child: Divider(
-                                      color: Colors.white60,
+                                      color: kcWhite60,
                                     ),
                                   ),
                                   Row(
@@ -122,18 +125,12 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                         children: [
                                           Text(
                                             'Distance',
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           ),
                                           Text(
                                             viewModel.Planets[viewModel
                                                 .currentIndex]['distance'],
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           )
                                         ],
                                       ),
@@ -141,18 +138,12 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                         children: [
                                           Text(
                                             'Light time',
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           ),
                                           Text(
                                             viewModel.Planets[viewModel
                                                 .currentIndex]['light'],
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           )
                                         ],
                                       ),
@@ -160,18 +151,12 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                                         children: [
                                           Text(
                                             'Year Length',
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           ),
                                           Text(
                                             viewModel.Planets[
                                                 viewModel.currentIndex]['year'],
-                                            style: TextStyle(
-                                                color: Colors.white60,
-                                                fontSize: 15,
-                                                fontFamily: 'Oswald'),
+                                            style: planetsDescriptionTextStyle,
                                           )
                                         ],
                                       ),
@@ -187,14 +172,14 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
                     ),
                     Positioned(
                       child: Container(
-                          width: MediaQuery.of(context).size.width / 2,
-                          height: MediaQuery.of(context).size.width / 2,
+                          width: screenWidthFraction(context, dividedBy: 2),
+                          height: screenWidthFraction(context, dividedBy: 2),
                           child: Image.asset(
                             viewModel.Planets[viewModel.currentIndex]['img'],
                             fit: BoxFit.cover,
                           )),
-                      left: MediaQuery.of(context).size.width / 4,
-                      top: MediaQuery.of(context).size.width / 20,
+                      left: screenWidthFraction(context, dividedBy: 4),
+                      top: screenWidthFraction(context, dividedBy: 20),
                     ),
                   ],
                 ),

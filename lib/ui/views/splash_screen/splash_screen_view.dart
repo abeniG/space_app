@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'splash_screen_viewmodel.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -15,15 +17,15 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: kcBlack,
       body: Stack(
         children: [
           //background image
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
             child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: screenHeight(context),
+              width: screenWidth(context),
               child: Image.asset(
                 'assets/floating_astronout.jpg',
                 fit: BoxFit.cover,
@@ -34,34 +36,34 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
           Center(
             child: GlassyContainer(
                 child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: screenHeight(context),
+              width: screenWidth(context),
             )),
           ),
           //logo image
           Positioned(
-              top: MediaQuery.of(context).size.width / 5,
-              right: MediaQuery.of(context).size.width / 1.25,
+              top: screenWidthFraction(context, dividedBy: 5),
+              right: screenWidthFraction(context, dividedBy: 1.25),
               child: Container(
-                  height: MediaQuery.of(context).size.width / 7,
-                  width: MediaQuery.of(context).size.width / 7,
+                  height: screenWidthFraction(context, dividedBy: 7),
+                  width: screenWidthFraction(context, dividedBy: 7),
                   child: Image.asset(fit: BoxFit.cover, 'assets/logo.png'))),
           //text
           Positioned(
-              top: MediaQuery.of(context).size.width / 2,
-              right: MediaQuery.of(context).size.width / 9,
+              top: screenWidthFraction(context, dividedBy: 2),
+              right: screenWidthFraction(context, dividedBy: 9),
               child: Text(
                 'Explore Space,\nInspire Generations.',
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: MediaQuery.of(context).size.width / 10,
-                    color: Colors.white.withOpacity(0.8),
-                    fontFamily: 'Oswald'),
+                    fontSize: screenWidthFraction(context, dividedBy: 10),
+                    color: kcWhite.withOpacity(0.8),
+                    fontFamily: fontFamilyOswald),
               )),
           //icon with lets go
           Positioned(
-              top: MediaQuery.of(context).size.height / 1.3,
-              right: MediaQuery.of(context).size.width / 1.7,
+              top: screenHeightFraction(context, dividedBy: 1.3),
+              right: screenWidthFraction(context, dividedBy: 1.7),
               child: Row(
                 children: [
                   IconButton(
@@ -69,13 +71,13 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
                       icon: Icon(
                         size: 40,
                         Icons.arrow_circle_right_outlined,
-                        color: Colors.white.withOpacity(0.9),
+                        color: kcWhite.withOpacity(0.9),
                       )),
                   AnimatedTextKit(animatedTexts: [
                     TypewriterAnimatedText("LET'S GO!",
                         textStyle: TextStyle(
-                            color: Colors.white60,
-                            fontFamily: 'Oswald',
+                            color: kcWhite60,
+                            fontFamily: fontFamilyOswald,
                             fontSize: 20),
                         curve: Curves.linear)
                   ])
@@ -104,7 +106,7 @@ class GlassyContainer extends StatelessWidget {
       filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
       child: Container(
         alignment: Alignment.center,
-        color: Colors.blueAccent.withOpacity(0.1),
+        color: kcBlueAccent.withOpacity(0.1),
         child: child,
       ),
     );

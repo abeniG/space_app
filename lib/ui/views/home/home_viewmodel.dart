@@ -33,8 +33,8 @@ class HomeViewModel extends BaseViewModel {
   void showDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
-      title: 'Coming Soon...',
-      description: 'Dear ESSS member we are pleased to inform you that we are currently working on this project',
+      title: ksDialogCommingSoon,
+      description: ksDialogDescription,
     );
   }
 
