@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/common/app_strings.dart';
-import 'package:space_app/ui/common/app_widgets.dart';
-import 'package:space_app/ui/views/sollar_system/common/bottom_container.dart';
+import 'package:space_app/ui/component/app_widgets.dart';
+import 'package:space_app/ui/views/sollar_system/component/bottom_container.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../common/ui_helpers.dart';
 import 'sollar_system_viewmodel.dart';
 
-class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
-  const SollarSystemPageView({Key? key}) : super(key: key);
+class SollarSystemView extends StackedView<SollarSystemViewModel> {
+  const SollarSystemView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    SollarSystemPageViewModel viewModel,
+    SollarSystemViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
-      appBar: const CommonAppBar(title: ksSolarSysem),
+      appBar: CommonAppBar(title: ksSolarSysem),
       backgroundColor: kcBlack,
       body: SizedBox(
         width: screenWidth(context),
@@ -59,8 +59,8 @@ class SollarSystemPageView extends StackedView<SollarSystemPageViewModel> {
   }
 
   @override
-  SollarSystemPageViewModel viewModelBuilder(
+  SollarSystemViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      SollarSystemPageViewModel();
+      SollarSystemViewModel();
 }

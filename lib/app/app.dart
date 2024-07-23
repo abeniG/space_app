@@ -11,6 +11,7 @@ import 'package:space_app/ui/views/gallery/gallery_view.dart';
 import 'package:space_app/ui/views/sollar_system/sollar_system_view.dart';
 import 'package:space_app/services/nasa_gallery_api_service.dart';
 import 'package:space_app/services/nasa_events_api_service.dart';
+import 'package:space_app/ui/views/full_screen/full_screen_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -20,8 +21,9 @@ import 'package:space_app/services/nasa_events_api_service.dart';
     MaterialRoute(page: SplashScreenView),
     MaterialRoute(page: EventPageView),
     MaterialRoute(page: QuizesPageView),
-    MaterialRoute(page: GalleryPageView),
-    MaterialRoute(page: SollarSystemPageView),
+    MaterialRoute(page: GalleryView),
+    MaterialRoute(page: SollarSystemView),
+    MaterialRoute(page: FullScreenView),
 // @stacked-route
   ],
   dependencies: [

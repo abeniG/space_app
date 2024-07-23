@@ -1,6 +1,6 @@
 import 'package:stacked/stacked.dart';
 
-class SollarSystemPageViewModel extends BaseViewModel {
+class SollarSystemViewModel extends BaseViewModel {
   List<Map> Planets = [
     //earth
     {

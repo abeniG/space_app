@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:lottie/lottie.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:stacked/stacked.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
-import 'package:lottie/lottie.dart';
-
+import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_strings.dart';
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
@@ -17,7 +17,7 @@ class StartupView extends StackedView<StartupViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: kcBlack,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -25,20 +25,19 @@ class StartupView extends StackedView<StartupViewModel> {
             Center(
                 child: Image.asset(
               'assets/animations/spaceShip.gif',
-              height: MediaQuery.of(context).size.width / 3,
-              width: MediaQuery.of(context).size.width / 3,
+              height: screenWidthFraction(context, dividedBy: 3),
+              width: screenWidthFraction(context, dividedBy: 3),
             )),
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Loading ...',
-                    style: TextStyle(fontSize: 16, color: Colors.white)),
+                Text(ksLoading, style: ktsLoading),
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
-                    color: Colors.white,
+                    color: kcWhite,
                     strokeWidth: 6,
                   ),
                 )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_strings.dart';
 import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 
@@ -59,7 +60,7 @@ class CustomBottomContainer extends StatelessWidget {
                               prev,
                               Text(
                                 name,
-                                style: ktsSolarDescription,
+                                style: ktsPlanetName,
                               ),
                               next
                             ],
@@ -69,10 +70,7 @@ class CustomBottomContainer extends StatelessWidget {
                                 left: 25.0, right: 25.0, top: 10),
                             child: Text(
                               description,
-                              style: const TextStyle(
-                                  color: kcWhite60,
-                                  fontFamily: fontFamilyOswald,
-                                  fontSize: 12),
+                              style: ktsPlanetDescription,
                             ),
                           ),
                           const Padding(
@@ -89,36 +87,36 @@ class CustomBottomContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   const Text(
-                                    'Distance',
-                                    style: planetsDescriptionTextStyle,
+                                    ksDistance,
+                                    style: ktsPlanetSubInfos,
                                   ),
                                   Text(
                                     distance,
-                                    style: planetsDescriptionTextStyle,
+                                    style: ktsPlanetSubInfos,
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
                                   const Text(
-                                    'Light time',
-                                    style: planetsDescriptionTextStyle,
+                                    ksLightTime,
+                                    style: ktsPlanetSubInfos,
                                   ),
                                   Text(
                                     lightTime,
-                                    style: planetsDescriptionTextStyle,
+                                    style: ktsPlanetSubInfos,
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
                                   const Text(
-                                    'Year Length',
-                                    style: planetsDescriptionTextStyle,
+                                    ksYearLength,
+                                    style: ktsPlanetSubInfos,
                                   ),
                                   Text(
                                     yearLength,
-                                    style: planetsDescriptionTextStyle,
+                                    style: ktsPlanetSubInfos,
                                   )
                                 ],
                               ),

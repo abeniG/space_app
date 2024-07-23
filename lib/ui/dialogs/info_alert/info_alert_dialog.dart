@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_strings.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -26,7 +28,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
   ) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: Colors.white,
+      backgroundColor: kcWhite,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
@@ -40,16 +42,11 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        request.title!,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w900),
-                      ),
+                      Text(request.title!, style: ktsRequestTitle),
                       verticalSpaceTiny,
                       Text(
                         request.description!,
-                        style:
-                            const TextStyle(fontSize: 14, color: kcMediumGrey),
+                        style: ktsRequestDescription,
                         maxLines: 3,
                         softWrap: true,
                       ),
@@ -68,16 +65,12 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: kcBlack,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Text(
-                  'Got it',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  ksGotIt,
+                  style: ktsGotIt,
                 ),
               ),
             )

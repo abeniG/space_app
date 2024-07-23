@@ -5,9 +5,11 @@ import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/common/app_icons.dart';
 import 'package:space_app/ui/common/app_strings.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
+import 'package:space_app/ui/views/splash_screen/common/glassy_container.dart';
 import 'package:stacked/stacked.dart';
 import 'splash_screen_viewmodel.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 
 class SplashScreenView extends StackedView<SplashScreenViewModel> {
   const SplashScreenView({Key? key}) : super(key: key);
@@ -25,7 +27,7 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
           //background image
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-            child: Container(
+            child: SizedBox(
               height: screenHeight(context),
               width: screenWidth(context),
               child: Image.asset(
@@ -37,7 +39,7 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
           //glassy container
           Center(
             child: GlassyContainer(
-                child: Container(
+                child: SizedBox(
               height: screenHeight(context),
               width: screenWidth(context),
             )),
@@ -46,7 +48,7 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
           Positioned(
               top: screenWidthFraction(context, dividedBy: 5),
               right: screenWidthFraction(context, dividedBy: 1.25),
-              child: Container(
+              child: SizedBox(
                   height: screenWidthFraction(context, dividedBy: 7),
                   width: screenWidthFraction(context, dividedBy: 7),
                   child: Image.asset(fit: BoxFit.cover, 'assets/logo.png'))),
@@ -54,14 +56,7 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
           Positioned(
               top: screenWidthFraction(context, dividedBy: 2),
               right: screenWidthFraction(context, dividedBy: 9),
-              child: Text(
-                ksMoto,
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: screenWidthFraction(context, dividedBy: 10),
-                    color: kcWhite.withOpacity(0.8),
-                    fontFamily: fontFamilyOswald),
-              )),
+              child: Text(ksMoto, style: ktsMoto)),
           //icon with lets go
           Positioned(
               top: screenHeightFraction(context, dividedBy: 1.3),
@@ -72,12 +67,8 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
                       onPressed: () => viewModel.navigateToHome(),
                       icon: kiLetsGo),
                   AnimatedTextKit(animatedTexts: [
-                    TypewriterAnimatedText("LET'S GO!",
-                        textStyle: const TextStyle(
-                            color: kcWhite60,
-                            fontFamily: fontFamilyOswald,
-                            fontSize: 20),
-                        curve: Curves.linear)
+                    TypewriterAnimatedText(ksLetsGo,
+                        textStyle: ktsLetsGo, curve: Curves.linear)
                   ])
                 ],
               ))
@@ -91,22 +82,4 @@ class SplashScreenView extends StackedView<SplashScreenViewModel> {
     BuildContext context,
   ) =>
       SplashScreenViewModel();
-}
-
-class GlassyContainer extends StatelessWidget {
-  final Widget child;
-
-  GlassyContainer({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
-      child: Container(
-        alignment: Alignment.center,
-        color: kcBlueAccent.withOpacity(0.1),
-        child: child,
-      ),
-    );
-  }
 }

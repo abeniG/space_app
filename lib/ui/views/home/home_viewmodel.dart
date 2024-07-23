@@ -1,4 +1,3 @@
-import 'package:space_app/app/app.bottomsheets.dart';
 import 'package:space_app/app/app.dialogs.dart';
 import 'package:space_app/app/app.locator.dart';
 import 'package:space_app/ui/common/app_strings.dart';
@@ -11,12 +10,12 @@ class HomeViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _dialogService = locator<DialogService>();
   void navigateToGallery() {
-    _navigationService.navigateTo(Routes.galleryPageView,
+    _navigationService.navigateTo(Routes.galleryView,
         transition: TransitionsBuilders.slideRightWithFade);
   }
 
   void navigateToSollarSystem() {
-    _navigationService.navigateTo(Routes.sollarSystemPageView,
+    _navigationService.navigateTo(Routes.sollarSystemView,
         transition: TransitionsBuilders.slideRightWithFade);
   }
 
