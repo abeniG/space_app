@@ -33,13 +33,13 @@ class SollarSystemView extends StackedView<SollarSystemViewModel> {
               ),
             ),
             CustomBottomContainer(
-                name: viewModel.Planets[viewModel.currentIndex]['name'],
-                image: viewModel.Planets[viewModel.currentIndex]['img'],
-                description: viewModel.Planets[viewModel.currentIndex]
+                name: viewModel.planets[viewModel.currentIndex]['name'],
+                image: viewModel.planets[viewModel.currentIndex]['img'],
+                description: viewModel.planets[viewModel.currentIndex]
                     ['discription'],
-                distance: viewModel.Planets[viewModel.currentIndex]['distance'],
-                lightTime: viewModel.Planets[viewModel.currentIndex]['light'],
-                yearLength: viewModel.Planets[viewModel.currentIndex]['year'],
+                distance: viewModel.planets[viewModel.currentIndex]['distance'],
+                lightTime: viewModel.planets[viewModel.currentIndex]['light'],
+                yearLength: viewModel.planets[viewModel.currentIndex]['year'],
                 next: IconButton(
                   icon: const Icon(Icons.arrow_forward_ios),
                   onPressed: () {

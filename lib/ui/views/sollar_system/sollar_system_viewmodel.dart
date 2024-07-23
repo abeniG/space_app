@@ -1,7 +1,7 @@
 import 'package:stacked/stacked.dart';
 
 class SollarSystemViewModel extends BaseViewModel {
-  List<Map> Planets = [
+  List<Map> planets = [
     //earth
     {
       'name': 'Earth',
@@ -85,10 +85,10 @@ class SollarSystemViewModel extends BaseViewModel {
   ];
   int currentIndex = 0;
   void next() {
-    if (currentIndex == Planets.length - 1) {
+    if (currentIndex == planets.length - 1) {
       currentIndex;
     }
-    if (currentIndex < Planets.length - 1) {
+    if (currentIndex < planets.length - 1) {
       currentIndex++;
     }
     notifyListeners();

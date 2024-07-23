@@ -9,8 +9,6 @@ import 'package:space_app/ui/views/event/event_view.dart';
 import 'package:space_app/ui/views/quizes/quizes_view.dart';
 import 'package:space_app/ui/views/gallery/gallery_view.dart';
 import 'package:space_app/ui/views/sollar_system/sollar_system_view.dart';
-import 'package:space_app/services/nasa_gallery_api_service.dart';
-import 'package:space_app/services/nasa_events_api_service.dart';
 import 'package:space_app/ui/views/full_screen/full_screen_view.dart';
 // @stacked-import
 
@@ -30,8 +28,6 @@ import 'package:space_app/ui/views/full_screen/full_screen_view.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    LazySingleton(classType: NasaGalleryApiService),
-    LazySingleton(classType: NasaEventsApiService),
 // @stacked-service
   ],
   bottomsheets: [
