@@ -33,6 +33,8 @@ const TextStyle ktsPlaceHolder =
 const TextStyle ktsPlanetDescription =
     TextStyle(color: kcWhite60, fontFamily: fontFamilyOswald, fontSize: 12);
 TextStyle ktsPlanetName = TextStyle(
-    color: kcWhite.withOpacity(0.9), fontFamily: 'Oswald', fontSize: 30);
+    color: kcWhite.withOpacity(0.9),
+    fontFamily: fontFamilyOswald,
+    fontSize: 30);
 const TextStyle ktsPlanetSubInfos =
     TextStyle(color: kcWhite60, fontSize: 15, fontFamily: fontFamilyOswald);

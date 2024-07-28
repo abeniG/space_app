@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:space_app/models/event.dart';
+import 'package:space_app/models/solar_planets/solar_planets.dart';
 
 class ApiService {
   Future<List<Event>> fetchEvents() async {
@@ -33,6 +34,21 @@ class ApiService {
       return jpegImages;
     } else {
       throw Exception('Failed to load');
+    }
+  }
+
+  Future<List<SolarPlanets>> fetchPlanetsInfo() async {
+    const String url = 'https://api.le-systeme-solaire.net/rest/bodies';
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body)['bodies'] as List<dynamic>;
+      final planets = data
+          .where((body) => body['isPlanet'] == true)
+          .map((body) => SolarPlanets.fromJson(body))
+          .toList();
+      return planets;
+    } else {
+      throw Exception('No data');
     }
   }
 }

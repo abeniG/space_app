@@ -8,59 +8,61 @@ import 'package:stacked/stacked.dart';
 import '../../common/ui_helpers.dart';
 import 'sollar_system_viewmodel.dart';
 
-class SollarSystemView extends StackedView<SollarSystemViewModel> {
-  const SollarSystemView({Key? key}) : super(key: key);
+class SollarSystemView extends StatelessWidget {
+  const SollarSystemView({super.key});
 
   @override
-  Widget builder(
-    BuildContext context,
-    SollarSystemViewModel viewModel,
-    Widget? child,
-  ) {
-    return Scaffold(
-      appBar: CommonAppBar(title: ksSolarSysem),
-      backgroundColor: kcBlack,
-      body: SizedBox(
-        width: screenWidth(context),
-        height: screenHeight(context),
-        child: Stack(
-          children: [
-            SizedBox(
-              width: screenWidth(context),
-              height: screenHeightFraction(context, dividedBy: 1.25),
-              child: Stack(
-                children: [Image.asset('assets/sollarSystem/sollarSystem.gif')],
-              ),
-            ),
-            CustomBottomContainer(
-                name: viewModel.planets[viewModel.currentIndex]['name'],
-                image: viewModel.planets[viewModel.currentIndex]['img'],
-                description: viewModel.planets[viewModel.currentIndex]
-                    ['discription'],
-                distance: viewModel.planets[viewModel.currentIndex]['distance'],
-                lightTime: viewModel.planets[viewModel.currentIndex]['light'],
-                yearLength: viewModel.planets[viewModel.currentIndex]['year'],
-                next: IconButton(
-                  icon: const Icon(Icons.arrow_forward_ios),
-                  onPressed: () {
-                    viewModel.next();
-                  },
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<SollarSystemViewModel>.reactive(
+        viewModelBuilder: () => SollarSystemViewModel(),
+        // ignore: deprecated_member_use
+        onModelReady: (model) => model.planetsData(),
+        builder: (context, model, child) => Scaffold(
+              appBar: CommonAppBar(title: ksSolarSysem),
+              backgroundColor: kcBlack,
+              body: SizedBox(
+                width: screenWidth(context),
+                height: screenHeight(context),
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      width: screenWidth(context),
+                      height: screenHeightFraction(context, dividedBy: 1.25),
+                      child: Stack(
+                        children: [
+                          Image.asset('assets/sollarSystem/sollarSystem.gif')
+                        ],
+                      ),
+                    ),
+                    model.planet.length == 0
+                        ? CircularProgressIndicator()
+                        : CustomBottomContainer(
+                            name: model.currentPlanet.englishName,
+                            image: model.planets[model.currentIndex]['img'],
+                            discoveredBy: model.currentPlanet.discoveredBy,
+                            gravity: model.currentPlanet.gravity,
+                            radius: model.currentPlanet.meanRadius,
+                            temprature: model.currentPlanet.avgTemp,
+                            next: IconButton(
+                              icon: const Icon(Icons.arrow_forward_ios),
+                              onPressed: () {
+                                model.next();
+                              },
+                            ),
+                            prev: IconButton(
+                              icon: const Icon(Icons.arrow_back_ios),
+                              onPressed: () {
+                                model.prev();
+                              },
+                            ))
+                  ],
                 ),
-                prev: IconButton(
-                  icon: const Icon(Icons.arrow_back_ios),
-                  onPressed: () {
-                    viewModel.prev();
-                  },
-                ))
-          ],
-        ),
-      ),
-    );
+              ),
+            ));
   }
-
-  @override
-  SollarSystemViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      SollarSystemViewModel();
 }
+
+/******
+ 
+ * 
+ */

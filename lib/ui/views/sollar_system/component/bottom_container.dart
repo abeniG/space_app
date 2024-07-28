@@ -7,20 +7,20 @@ import 'package:space_app/ui/common/ui_helpers.dart';
 class CustomBottomContainer extends StatelessWidget {
   final String name;
   final String image;
-  final String description;
-  final String distance;
-  final String lightTime;
-  final String yearLength;
+  final String discoveredBy;
+  final double gravity;
+  final double radius;
+  final double temprature;
   final Widget next;
   final Widget prev;
   const CustomBottomContainer(
       {super.key,
       required this.name,
       required this.image,
-      required this.description,
-      required this.distance,
-      required this.lightTime,
-      required this.yearLength,
+      required this.discoveredBy,
+      required this.gravity,
+      required this.radius,
+      required this.temprature,
       required this.next,
       required this.prev});
 
@@ -69,7 +69,7 @@ class CustomBottomContainer extends StatelessWidget {
                             padding: const EdgeInsets.only(
                                 left: 25.0, right: 25.0, top: 10),
                             child: Text(
-                              description,
+                              discoveredBy,
                               style: ktsPlanetDescription,
                             ),
                           ),
@@ -87,11 +87,11 @@ class CustomBottomContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   const Text(
-                                    ksDistance,
+                                    ksGravity,
                                     style: ktsPlanetSubInfos,
                                   ),
                                   Text(
-                                    distance,
+                                    gravity.toString(),
                                     style: ktsPlanetSubInfos,
                                   )
                                 ],
@@ -99,11 +99,11 @@ class CustomBottomContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   const Text(
-                                    ksLightTime,
+                                    ksRadius,
                                     style: ktsPlanetSubInfos,
                                   ),
                                   Text(
-                                    lightTime,
+                                    radius.toString(),
                                     style: ktsPlanetSubInfos,
                                   )
                                 ],
@@ -111,11 +111,11 @@ class CustomBottomContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   const Text(
-                                    ksYearLength,
+                                    ksTemprature,
                                     style: ktsPlanetSubInfos,
                                   ),
                                   Text(
-                                    yearLength,
+                                    temprature.toString(),
                                     style: ktsPlanetSubInfos,
                                   )
                                 ],
