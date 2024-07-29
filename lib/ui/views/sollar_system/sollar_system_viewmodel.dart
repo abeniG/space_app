@@ -1,94 +1,54 @@
 import 'package:stacked/stacked.dart';
+import 'package:space_app/services/api_service.dart';
+import 'package:space_app/models/solar_planets/solar_planets.dart';
 
 class SollarSystemViewModel extends BaseViewModel {
-  List<Map> planets = [
-    //earth
-    {
-      'name': 'Earth',
-      'img': 'assets/sollarSystem/earth.png',
-      'discription':
-          'Earth is our home planet, rich in diverse ecosystems, supporting life and dynamic environments.',
-      'distance': '93M miles',
-      'light': '8.31 Mins',
-      'year': '365.25 Days'
-    },
-    //jupiter
-    {
-      'name': 'Jupiter',
-      'img': 'assets/sollarSystem/jupiter.png',
-      'discription':
-          'Jupiter is the largest planet, a gas giant with strong storms, like the Great Red Spot.',
-      'distance': '484M miles',
-      'light': '43.3 Mins',
-      'year': '4,332 Days'
-    },
-    //mars
-    {
-      'name': 'Mars',
-      'img': 'assets/sollarSystem/mars.png',
-      'discription':
-          'Mars, the Red Planet, has a thin atmosphere, polar ice caps, and potential signs of water.',
-      'distance': '141.6M miles',
-      'light': '12.7 Mins',
-      'year': '687 Days'
-    },
-    //mercury
-    {
-      'name': 'Mercury',
-      'img': 'assets/sollarSystem/mercury.png',
-      'discription':
-          'Mercury is the smallest planet, closest to the Sun, with extreme temperatures and no atmosphere.',
-      'distance': '36M miles',
-      'light': '3.22 Mins',
-      'year': '88 Days'
-    },
-    //saturn
-    {
-      'name': 'Saturn',
-      'img': 'assets/sollarSystem/saturn.png',
-      'discription':
-          'Saturn is a gas giant, famous for its stunning ring system, and has many moons.',
-      'distance': '886M miles',
-      'light': '1.2 Mins',
-      'year': '10,759 Days',
-    },
-    //sun
-    {
-      'name': 'Sun',
-      'img': 'assets/sollarSystem/sun.png',
-      'discription':
-          "The Sun is a massive, luminous star at the solar system's center, providing heat and light.",
-      'distance': '93M miles',
-      'light': '8.31 Mins',
-      'year': '__',
-    },
-    //uranus
-    {
-      'name': 'Uranus',
-      'img': 'assets/sollarSystem/uranus.png',
-      'discription':
-          'Uranus is an ice giant with a tilted axis, faint rings, and a cold, methane-rich atmosphere.',
-      'distance': '1.7B miles',
-      'light': '2.66 Mins',
-      'year': '30,687 Days',
-    },
-    //venus
-    {
-      'name': 'Venus',
-      'img': 'assets/sollarSystem/venus.png',
-      'discription':
-          'Venus is a rocky planet with a thick, toxic atmosphere, extreme surface heat, and volcanic activity.',
-      'distance': '67.2M miles',
-      'light': '6.02 Mins',
-      'year': '225 Days'
-    }
-  ];
+  final ApiService _apiService = ApiService();
+  List<SolarPlanets> _planet = [];
+  List<SolarPlanets> get planet => _planet;
+
+
+
+Map<String, String> defaultImages = {
+  'earth' : 'assets/sollarSystem/earth.png',
+  'jupiter' : 'assets/sollarSystem/jupiter.png',
+  'mars' : 'assets/sollarSystem/mars.png',
+  'mercury' : 'assets/sollarSystem/mercury.png',
+  'saturn' : 'assets/sollarSystem/saturn.png',
+  'uranus' : 'assets/sollarSystem/uranus.png',
+  'venus' : 'assets/sollarSystem/venus.png',
+  'neptune': 'assets/sollarSystem/mercury.png'
+};
+Map<String, String> defaultDiscription = {
+  'earth' : 'Earth is our home planet, rich in diverse ecosystems, supporting life and dynamic environments.',
+  'jupiter' : 'Jupiter is the largest planet, a gas giant with strong storms, like the Great Red Spot.',
+  'mars' : 'Mars, the Red Planet, has a thin atmosphere, polar ice caps, and potential signs of water.',
+  'mercury' : 'Mercury is the smallest planet, closest to the Sun, with extreme temperatures and no atmosphere.',
+  'saturn' : 'Saturn is a gas giant, famous for its stunning ring system, and has many moons.',
+  'uranus' : 'Uranus is an ice giant with a tilted axis, faint rings, and a cold, methane-rich atmosphere.',
+  'venus' : 'Venus is a rocky planet with a thick, toxic atmosphere, extreme surface heat, and volcanic activity.',
+  'neptune' : 'Neptune, the eighth planet, is a gas giant known for its deep blue color and strong winds.'
+};
+
+
+  Future<void> planetsData() async {
+    _planet = await _apiService.fetchPlanetsInfo();
+    _planet = _planet.map((planet){
+      return planet.copyWith(
+        discription: defaultDiscription[planet.englishName.toLowerCase()] ?? planet.discription,
+        image: defaultImages[planet.englishName.toLowerCase()] ?? planet.image
+      );
+    }).toList();
+      notifyListeners();
+  }
+  
   int currentIndex = 0;
+  SolarPlanets get currentPlanet => planet[currentIndex];
   void next() {
-    if (currentIndex == planets.length - 1) {
+    if (currentIndex == planet.length - 1) {
       currentIndex;
     }
-    if (currentIndex < planets.length - 1) {
+    if (currentIndex < planet.length - 1) {
       currentIndex++;
     }
     notifyListeners();

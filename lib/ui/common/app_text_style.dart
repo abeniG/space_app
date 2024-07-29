@@ -2,37 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 
-const TextStyle ktsWhiteText = TextStyle(color: kcWhite);
-const TextStyle ktsWhite54Text = TextStyle(color: kcWhite54);
-const TextStyle ktsLoading = TextStyle(fontSize: 16, color: kcWhite);
-const TextStyle ktsGotIt = TextStyle(
-  color: kcWhite,
-  fontWeight: FontWeight.bold,
-  fontSize: 16,
-);
-const TextStyle ktsRequestTitle =
-    TextStyle(fontSize: 16, fontWeight: FontWeight.w900);
-const TextStyle ktsRequestDescription =
-    TextStyle(fontSize: 14, color: kcMediumGrey);
-const TextStyle ktsLetsGo =
-    TextStyle(color: kcWhite60, fontFamily: fontFamilyOswald, fontSize: 20);
-TextStyle ktsMoto = TextStyle(
-    fontWeight: FontWeight.w900,
-    fontSize: 35,
-    color: kcWhite.withOpacity(0.8),
-    fontFamily: fontFamilyOswald);
-//home page text Styles
-TextStyle ktsEsss = TextStyle(
-    color: kcRed.withOpacity(0.8),
-    fontWeight: FontWeight.bold,
-    fontSize: 40,
-    fontFamily: fontFamilyOswald);
-const TextStyle ktsPlaceHolder =
-    TextStyle(color: kcWhite, fontFamily: fontFamilyOswald, fontSize: 20);
-//custom bottom container text Styles
-const TextStyle ktsPlanetDescription =
-    TextStyle(color: kcWhite60, fontFamily: fontFamilyOswald, fontSize: 12);
-TextStyle ktsPlanetName = TextStyle(
-    color: kcWhite.withOpacity(0.9), fontFamily: 'Oswald', fontSize: 30);
-const TextStyle ktsPlanetSubInfos =
-    TextStyle(color: kcWhite60, fontSize: 15, fontFamily: fontFamilyOswald);
+
+//headers
+const TextStyle ktsHeader1 = TextStyle(color: kcWhite, fontSize: 32, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+const TextStyle ktsHeader2 = TextStyle(color: kcWhite, fontSize: 28, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+const TextStyle ktsHeader3 = TextStyle(color: kcWhite, fontSize: 24, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+const TextStyle ktsHeader4 = TextStyle(color: kcWhite, fontSize: 20, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+const TextStyle ktsHeader5 = TextStyle(color: kcWhite, fontSize: 16, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+const TextStyle ktsHeader6 = TextStyle(color: kcWhite, fontSize: 12, fontFamily: fontFamilyOswald, fontWeight: FontWeight.bold,);
+
+//body
+const TextStyle ktsBigBodyText = TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: kcWhite, fontFamily: fontFamilyOswald);
+const TextStyle ktsMediumBodyText = TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: kcWhite,fontFamily: fontFamilyOswald);
+const TextStyle ktsSmallBodyText = TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal, color: kcWhite,fontFamily: fontFamilyOswald);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:space_app/ui/common/ui_helpers.dart';
 
 // ignore: must_be_immutable
@@ -42,10 +43,9 @@ class OptionsContainer extends StatelessWidget {
             left: positionFromLeft,
             child: Text(
               title,
-              style: const TextStyle(
-                  fontFamily: fontFamilyOswald,
-                  color: kcWhite,
-                  fontSize: optionsTextFontSize),
+              style: ktsHeader3.copyWith(
+                fontWeight: FontWeight.normal
+              )
             ),
           ),
         ],

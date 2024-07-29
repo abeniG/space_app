@@ -7,20 +7,20 @@ import 'package:space_app/ui/common/ui_helpers.dart';
 class CustomBottomContainer extends StatelessWidget {
   final String name;
   final String image;
-  final String description;
-  final String distance;
-  final String lightTime;
-  final String yearLength;
-  final Widget next;
-  final Widget prev;
+  final String discoveredBy;
+  final double gravity;
+  final double radius;
+  final double temprature;
+  final Function next;
+  final Function prev;
   const CustomBottomContainer(
       {super.key,
       required this.name,
       required this.image,
-      required this.description,
-      required this.distance,
-      required this.lightTime,
-      required this.yearLength,
+      required this.discoveredBy,
+      required this.gravity,
+      required this.radius,
+      required this.temprature,
       required this.next,
       required this.prev});
 
@@ -52,25 +52,39 @@ class CustomBottomContainer extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          verticalSpaceLarge,
-                          verticalSpaceMedium,
+                          verticalSpace(70),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              prev,
+                              IconButton(
+                                icon: const Icon(Icons.arrow_back_ios),
+                                onPressed: () {
+                                  prev();
+                                },
+                              ),
                               Text(
                                 name,
-                                style: ktsPlanetName,
+                                style: ktsHeader1.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  color: kcWhite.withOpacity(0.8)
+                                ),
                               ),
-                              next
+                              IconButton(
+                                icon: const Icon(Icons.arrow_forward_ios),
+                                onPressed: () {
+                                  next();
+                                },
+                              )
                             ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 25.0, right: 25.0, top: 10),
                             child: Text(
-                              description,
-                              style: ktsPlanetDescription,
+                              discoveredBy,
+                              style: ktsSmallBodyText.copyWith(
+                                color: kcWhite60
+                              ),
                             ),
                           ),
                           const Padding(
@@ -86,37 +100,49 @@ class CustomBottomContainer extends StatelessWidget {
                               horizontalSpaceTiny,
                               Column(
                                 children: [
-                                  const Text(
-                                    ksDistance,
-                                    style: ktsPlanetSubInfos,
+                                   Text(
+                                    ksGravity,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
-                                    distance,
-                                    style: ktsPlanetSubInfos,
+                                    gravity.toString(),
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
-                                  const Text(
-                                    ksLightTime,
-                                    style: ktsPlanetSubInfos,
+                                   Text(
+                                    ksRadius,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
-                                    lightTime,
-                                    style: ktsPlanetSubInfos,
+                                    radius.toString(),
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
-                                  const Text(
-                                    ksYearLength,
-                                    style: ktsPlanetSubInfos,
+                                   Text(
+                                    ksTemprature,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
-                                    yearLength,
-                                    style: ktsPlanetSubInfos,
+                                    temprature.toString(),
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),

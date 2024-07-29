@@ -50,19 +50,21 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                       Positioned(
                           top: screenWidthFraction(context, dividedBy: 4.2),
-                          child: const Text(ksHomePlaceholder,
-                              style: ktsPlaceHolder))
+                          left: screenWidthFraction(context, dividedBy: 10),
+                          child:  Text(ksHomePlaceholder,
+                              style: ktsBigBodyText.copyWith(fontFamily: fontFamilyOswald)
+                              ))
                     ],
                   ),
                 ),
               ),
-              Row(
+              const Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       ksDiscoverNow,
-                      style: ktsPlanetName,
+                      style: ktsHeader2,
                     ),
                   ),
                 ],

@@ -48,6 +48,7 @@ flutter:
     - assets/sollarSystem/jupiter.png
     - assets/sollarSystem/mars.png
     - assets/sollarSystem/mercury.png
+    - assets/sollarSystem/neptune.png
     - assets/sollarSystem/saturn.png
     - assets/sollarSystem/sun.png
     - assets/sollarSystem/uranus.png

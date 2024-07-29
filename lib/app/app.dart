@@ -17,7 +17,7 @@ import 'package:space_app/ui/views/full_screen/full_screen_view.dart';
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: SplashScreenView),
-    MaterialRoute(page: EventPageView),
+    MaterialRoute(page: EventView),
     MaterialRoute(page: QuizesPageView),
     MaterialRoute(page: GalleryView),
     MaterialRoute(page: SollarSystemView),

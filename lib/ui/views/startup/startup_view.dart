@@ -31,7 +31,7 @@ class StartupView extends StackedView<StartupViewModel> {
             const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(ksLoading, style: ktsLoading),
+                Text(ksLoading, style: ktsMediumBodyText),
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
