@@ -24,7 +24,9 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 horizontalSpaceMedium,
-                Text(title, style: ktsEsss),
+                Text(title, style: ktsHeader1.copyWith(
+                  color: kcRed.withOpacity(0.8)
+                )),
                 SizedBox(
                     height: screenHeightFraction(context, dividedBy: 9),
                     width: screenWidthFraction(context, dividedBy: 9),
@@ -40,7 +42,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
             elevation: 0,
             title: Text(
               title,
-              style: ktsWhiteText,
+              style: ktsHeader4,
             ),
           );
   }

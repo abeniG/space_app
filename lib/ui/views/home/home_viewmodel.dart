@@ -25,7 +25,7 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void navigateToEvents() {
-    _navigationService.navigateTo(Routes.eventPageView,
+    _navigationService.navigateTo(Routes.eventView,
         transition: TransitionsBuilders.slideRightWithFade);
   }
 

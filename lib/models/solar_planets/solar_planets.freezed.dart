@@ -26,6 +26,8 @@ mixin _$SolarPlanets {
   String get discoveredBy => throw _privateConstructorUsedError;
   double get meanRadius => throw _privateConstructorUsedError;
   bool get isPlanet => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+  String? get discription => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +47,9 @@ abstract class $SolarPlanetsCopyWith<$Res> {
       double avgTemp,
       String discoveredBy,
       double meanRadius,
-      bool isPlanet});
+      bool isPlanet,
+      String? image,
+      String? discription});
 }
 
 /// @nodoc
@@ -67,6 +71,8 @@ class _$SolarPlanetsCopyWithImpl<$Res, $Val extends SolarPlanets>
     Object? discoveredBy = null,
     Object? meanRadius = null,
     Object? isPlanet = null,
+    Object? image = freezed,
+    Object? discription = freezed,
   }) {
     return _then(_value.copyWith(
       englishName: null == englishName
@@ -93,6 +99,14 @@ class _$SolarPlanetsCopyWithImpl<$Res, $Val extends SolarPlanets>
           ? _value.isPlanet
           : isPlanet // ignore: cast_nullable_to_non_nullable
               as bool,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discription: freezed == discription
+          ? _value.discription
+          : discription // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -111,7 +125,9 @@ abstract class _$$SolarPlanetsImplCopyWith<$Res>
       double avgTemp,
       String discoveredBy,
       double meanRadius,
-      bool isPlanet});
+      bool isPlanet,
+      String? image,
+      String? discription});
 }
 
 /// @nodoc
@@ -131,6 +147,8 @@ class __$$SolarPlanetsImplCopyWithImpl<$Res>
     Object? discoveredBy = null,
     Object? meanRadius = null,
     Object? isPlanet = null,
+    Object? image = freezed,
+    Object? discription = freezed,
   }) {
     return _then(_$SolarPlanetsImpl(
       englishName: null == englishName
@@ -157,6 +175,14 @@ class __$$SolarPlanetsImplCopyWithImpl<$Res>
           ? _value.isPlanet
           : isPlanet // ignore: cast_nullable_to_non_nullable
               as bool,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discription: freezed == discription
+          ? _value.discription
+          : discription // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -170,7 +196,9 @@ class _$SolarPlanetsImpl implements _SolarPlanets {
       required this.avgTemp,
       required this.discoveredBy,
       required this.meanRadius,
-      required this.isPlanet});
+      required this.isPlanet,
+      this.image,
+      this.discription});
 
   factory _$SolarPlanetsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SolarPlanetsImplFromJson(json);
@@ -187,10 +215,14 @@ class _$SolarPlanetsImpl implements _SolarPlanets {
   final double meanRadius;
   @override
   final bool isPlanet;
+  @override
+  final String? image;
+  @override
+  final String? discription;
 
   @override
   String toString() {
-    return 'SolarPlanets(englishName: $englishName, gravity: $gravity, avgTemp: $avgTemp, discoveredBy: $discoveredBy, meanRadius: $meanRadius, isPlanet: $isPlanet)';
+    return 'SolarPlanets(englishName: $englishName, gravity: $gravity, avgTemp: $avgTemp, discoveredBy: $discoveredBy, meanRadius: $meanRadius, isPlanet: $isPlanet, image: $image, discription: $discription)';
   }
 
   @override
@@ -207,13 +239,16 @@ class _$SolarPlanetsImpl implements _SolarPlanets {
             (identical(other.meanRadius, meanRadius) ||
                 other.meanRadius == meanRadius) &&
             (identical(other.isPlanet, isPlanet) ||
-                other.isPlanet == isPlanet));
+                other.isPlanet == isPlanet) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.discription, discription) ||
+                other.discription == discription));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, englishName, gravity, avgTemp,
-      discoveredBy, meanRadius, isPlanet);
+      discoveredBy, meanRadius, isPlanet, image, discription);
 
   @JsonKey(ignore: true)
   @override
@@ -236,7 +271,9 @@ abstract class _SolarPlanets implements SolarPlanets {
       required final double avgTemp,
       required final String discoveredBy,
       required final double meanRadius,
-      required final bool isPlanet}) = _$SolarPlanetsImpl;
+      required final bool isPlanet,
+      final String? image,
+      final String? discription}) = _$SolarPlanetsImpl;
 
   factory _SolarPlanets.fromJson(Map<String, dynamic> json) =
       _$SolarPlanetsImpl.fromJson;
@@ -253,6 +290,10 @@ abstract class _SolarPlanets implements SolarPlanets {
   double get meanRadius;
   @override
   bool get isPlanet;
+  @override
+  String? get image;
+  @override
+  String? get discription;
   @override
   @JsonKey(ignore: true)
   _$$SolarPlanetsImplCopyWith<_$SolarPlanetsImpl> get copyWith =>

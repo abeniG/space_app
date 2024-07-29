@@ -12,6 +12,8 @@ class SolarPlanets with _$SolarPlanets {
     required String discoveredBy,
     required double meanRadius,
     required bool isPlanet,
+    String? image,
+    String? discription,
   }) = _SolarPlanets;
 
   factory SolarPlanets.fromJson(Map<String, dynamic> json) =>

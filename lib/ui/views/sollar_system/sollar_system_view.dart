@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/ui/common/app_colors.dart';
 import 'package:space_app/ui/common/app_strings.dart';
+import 'package:space_app/ui/common/app_text_style.dart';
 import 'package:space_app/ui/component/app_widgets.dart';
 import 'package:space_app/ui/views/sollar_system/component/bottom_container.dart';
 import 'package:stacked/stacked.dart';
@@ -34,27 +35,28 @@ class SollarSystemView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    model.planet.length == 0
-                        ? CircularProgressIndicator()
+                    model.planet.isEmpty
+                        ?  Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                                  'assets/animations/spaceShip.gif',
+                                  height: screenWidthFraction(context, dividedBy: 3),
+                                  width: screenWidthFraction(context, dividedBy: 3),
+                                ),
+                                const Text(ksLoading, style: ktsMediumBodyText,)
+                  ],
+                ))
                         : CustomBottomContainer(
                             name: model.currentPlanet.englishName,
-                            image: model.planets[model.currentIndex]['img'],
-                            discoveredBy: model.currentPlanet.discoveredBy,
+                            image: model.currentPlanet.image.toString(),
+                            discoveredBy: model.currentPlanet.discription.toString(),
                             gravity: model.currentPlanet.gravity,
                             radius: model.currentPlanet.meanRadius,
                             temprature: model.currentPlanet.avgTemp,
-                            next: IconButton(
-                              icon: const Icon(Icons.arrow_forward_ios),
-                              onPressed: () {
-                                model.next();
-                              },
-                            ),
-                            prev: IconButton(
-                              icon: const Icon(Icons.arrow_back_ios),
-                              onPressed: () {
-                                model.prev();
-                              },
-                            ))
+                            next: model.next,
+                            prev: model.prev)
                   ],
                 ),
               ),

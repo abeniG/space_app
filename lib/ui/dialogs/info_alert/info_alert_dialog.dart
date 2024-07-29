@@ -42,11 +42,16 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(request.title!, style: ktsRequestTitle),
+                      Text(request.title!, style: ktsSmallBodyText.copyWith(
+                        color: kcBlack,
+                        fontWeight: FontWeight.bold
+                      )),
                       verticalSpaceTiny,
                       Text(
                         request.description!,
-                        style: ktsRequestDescription,
+                        style: ktsSmallBodyText.copyWith(
+                          color: kcBlack.withOpacity(0.4)
+                        ),
                         maxLines: 3,
                         softWrap: true,
                       ),
@@ -68,9 +73,11 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                   color: kcBlack,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text(
+                child: Text(
                   ksGotIt,
-                  style: ktsGotIt,
+                  style: ktsSmallBodyText.copyWith(
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
             )

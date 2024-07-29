@@ -14,6 +14,8 @@ _$SolarPlanetsImpl _$$SolarPlanetsImplFromJson(Map<String, dynamic> json) =>
       discoveredBy: json['discoveredBy'] as String,
       meanRadius: (json['meanRadius'] as num).toDouble(),
       isPlanet: json['isPlanet'] as bool,
+      image: json['image'] as String?,
+      discription: json['discription'] as String?,
     );
 
 Map<String, dynamic> _$$SolarPlanetsImplToJson(_$SolarPlanetsImpl instance) =>
@@ -24,4 +26,6 @@ Map<String, dynamic> _$$SolarPlanetsImplToJson(_$SolarPlanetsImpl instance) =>
       'discoveredBy': instance.discoveredBy,
       'meanRadius': instance.meanRadius,
       'isPlanet': instance.isPlanet,
+      'image': instance.image,
+      'discription': instance.discription,
     };

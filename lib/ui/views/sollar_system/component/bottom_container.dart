@@ -11,8 +11,8 @@ class CustomBottomContainer extends StatelessWidget {
   final double gravity;
   final double radius;
   final double temprature;
-  final Widget next;
-  final Widget prev;
+  final Function next;
+  final Function prev;
   const CustomBottomContainer(
       {super.key,
       required this.name,
@@ -52,17 +52,29 @@ class CustomBottomContainer extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          verticalSpaceLarge,
-                          verticalSpaceMedium,
+                          verticalSpace(70),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              prev,
+                              IconButton(
+                                icon: const Icon(Icons.arrow_back_ios),
+                                onPressed: () {
+                                  prev();
+                                },
+                              ),
                               Text(
                                 name,
-                                style: ktsPlanetName,
+                                style: ktsHeader1.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  color: kcWhite.withOpacity(0.8)
+                                ),
                               ),
-                              next
+                              IconButton(
+                                icon: const Icon(Icons.arrow_forward_ios),
+                                onPressed: () {
+                                  next();
+                                },
+                              )
                             ],
                           ),
                           Padding(
@@ -70,7 +82,9 @@ class CustomBottomContainer extends StatelessWidget {
                                 left: 25.0, right: 25.0, top: 10),
                             child: Text(
                               discoveredBy,
-                              style: ktsPlanetDescription,
+                              style: ktsSmallBodyText.copyWith(
+                                color: kcWhite60
+                              ),
                             ),
                           ),
                           const Padding(
@@ -86,37 +100,49 @@ class CustomBottomContainer extends StatelessWidget {
                               horizontalSpaceTiny,
                               Column(
                                 children: [
-                                  const Text(
+                                   Text(
                                     ksGravity,
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
                                     gravity.toString(),
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
-                                  const Text(
+                                   Text(
                                     ksRadius,
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
                                     radius.toString(),
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),
                               Column(
                                 children: [
-                                  const Text(
+                                   Text(
                                     ksTemprature,
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   ),
                                   Text(
                                     temprature.toString(),
-                                    style: ktsPlanetSubInfos,
+                                    style: ktsMediumBodyText.copyWith(
+                                      color: kcWhite60
+                                    ),
                                   )
                                 ],
                               ),

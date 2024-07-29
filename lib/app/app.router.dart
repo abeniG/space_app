@@ -27,7 +27,7 @@ class Routes {
 
   static const splashScreenView = '/splash-screen-view';
 
-  static const eventPageView = '/event-page-view';
+  static const eventView = '/event-view';
 
   static const quizesPageView = '/quizes-page-view';
 
@@ -41,7 +41,7 @@ class Routes {
     homeView,
     startupView,
     splashScreenView,
-    eventPageView,
+    eventView,
     quizesPageView,
     galleryView,
     sollarSystemView,
@@ -64,8 +64,8 @@ class StackedRouter extends _i1.RouterBase {
       page: _i4.SplashScreenView,
     ),
     _i1.RouteDef(
-      Routes.eventPageView,
-      page: _i5.EventPageView,
+      Routes.eventView,
+      page: _i5.EventView,
     ),
     _i1.RouteDef(
       Routes.quizesPageView,
@@ -104,12 +104,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i5.EventPageView: (data) {
-      final args = data.getArgs<EventPageViewArguments>(
-        orElse: () => const EventPageViewArguments(),
+    _i5.EventView: (data) {
+      final args = data.getArgs<EventViewArguments>(
+        orElse: () => const EventViewArguments(),
       );
       return _i10.MaterialPageRoute<dynamic>(
-        builder: (context) => _i5.EventPageView(key: args.key),
+        builder: (context) => _i5.EventView(key: args.key),
         settings: data,
       );
     },
@@ -148,8 +148,8 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-class EventPageViewArguments {
-  const EventPageViewArguments({this.key});
+class EventViewArguments {
+  const EventViewArguments({this.key});
 
   final _i10.Key? key;
 
@@ -159,7 +159,7 @@ class EventPageViewArguments {
   }
 
   @override
-  bool operator ==(covariant EventPageViewArguments other) {
+  bool operator ==(covariant EventViewArguments other) {
     if (identical(this, other)) return true;
     return other.key == key;
   }
@@ -240,7 +240,7 @@ extension NavigatorStateExtension on _i11.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToEventPageView({
+  Future<dynamic> navigateToEventView({
     _i10.Key? key,
     int? routerId,
     bool preventDuplicates = true,
@@ -248,8 +248,8 @@ extension NavigatorStateExtension on _i11.NavigationService {
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   }) async {
-    return navigateTo<dynamic>(Routes.eventPageView,
-        arguments: EventPageViewArguments(key: key),
+    return navigateTo<dynamic>(Routes.eventView,
+        arguments: EventViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -357,7 +357,7 @@ extension NavigatorStateExtension on _i11.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithEventPageView({
+  Future<dynamic> replaceWithEventView({
     _i10.Key? key,
     int? routerId,
     bool preventDuplicates = true,
@@ -365,8 +365,8 @@ extension NavigatorStateExtension on _i11.NavigationService {
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   }) async {
-    return replaceWith<dynamic>(Routes.eventPageView,
-        arguments: EventPageViewArguments(key: key),
+    return replaceWith<dynamic>(Routes.eventView,
+        arguments: EventViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
